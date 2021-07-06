@@ -64,7 +64,8 @@ Object.defineProperties(newObject, {
     }
 });
 
-// We can get properties of the object created by using 3, 4th method using any of options of 1, 2.
+// We can get properties of the object created by
+// using 3, 4th method using any of options of 1, 2.
 
 // These methods can also be used for inheritance
 let pilot = Object.create(person);

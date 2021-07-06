@@ -1,6 +1,6 @@
 /* Constructor Pattern -- START */
 
-import { pilot } from './patterns/constructor';
+import { pilot } from './patterns/constructor-pattern/constructor';
 
 console.log(pilot.__proto__, 'pilot');
 
@@ -14,7 +14,7 @@ console.log(pilot.__proto__, 'pilot');
 
 /* Module Pattern -- START */
 
-import { testModule, basketModule } from './patterns/_module';
+import { testModule, basketModule } from './patterns/module-pattern/_module';
 
 // testModule
 testModule.incrementCounter();
@@ -52,7 +52,7 @@ scope of the basketModule console.log(basket); */
 
 /* The Singleton Pattern -- START */
 
-import { SingletonTester } from './patterns/singleton';
+import { SingletonTester } from './patterns/singleton-pattern/singleton';
 
 let singletonTest = SingletonTester.getInstance({
     pointX: 4
@@ -72,7 +72,7 @@ ty in stubbing dependencies and so on. */
 
 
 /* The Observer Pattern -- START */
-import { Subject, Observer, IObserver, ISubject } from './patterns/observer';
+import { Subject, Observer, IObserver, ISubject } from './patterns/observer-pattern/observer';
 
 interface IInputObserver extends HTMLInputElement, Partial<ISubject> {}
 
