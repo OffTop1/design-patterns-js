@@ -124,3 +124,48 @@ function addNewObserver() {
     container.appendChild(check);
 }
 /* The Observer Pattern -- END */
+
+
+
+
+
+/* The Publish/Subscribe pattern -- START */
+import { pubsub } from './patterns/observer-pattern/publish-subscribe';
+
+/* We can now use the implementation to publish
+and subscribe to events of interest as follows */
+
+// A simple message logger that logs any topics and 
+// data received through subscriber
+let messageLogger = function(topic: string, data: any) {
+    console.log("Logging: " + topic + ": " + JSON.stringify(data));
+};
+
+/* Subscribers listen for topics they have subscribed
+to and invoke a callback function (e.g messageLogger)
+once a new ontification is broadcast on that topic */
+let subscription = pubsub.subscribe("inbox/newMessage", messageLogger);
+
+/* Publishers are in charge of publishing topics
+or notifications of interest to the application. */
+
+pubsub.publish("inbox/newMessage", "hello world!");
+
+// or
+pubsub.publish("inbox/newMessage", ["test", "a", "b", "c"]);
+
+// or
+pubsub.publish("inbox/newMessage", {
+    sender: "hello@inbox.com",
+    body: "Hey again!"
+});
+
+// We can also unsubscribe if we no longer
+// wish for our subscribers to be notified
+pubsub.unsubscribe(subscription);
+
+// Once unsubscribed, this for example won't
+// result in our messageLogger being executed 
+// as the subscriber is no longer listening
+pubsub.publish("inbox/newMessage", "Hello! Are you still there ?");
+/* The Publish/Subscribe pattern -- START */
